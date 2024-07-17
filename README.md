@@ -9,32 +9,26 @@ A comprehensive project focused on statistical modeling and inference using the 
 Ensure Python and required libraries (pandas, matplotlib, seaborn, scikit-learn) are installed. Set up a project directory and include the necessary datasets.
 
 ### 2. Data Cleaning Script
-Create a file named `data_cleaning.py` and use the following code:
+Refer to the `data_cleaning.py` file for the data cleaning script used in this project.
 
-```python
-import pandas as pd
+### 3. Exploratory Data Analysis (EDA)
+Refer to the `eda.py` file for the exploratory data analysis script used in this project.
 
-# Load the dataset
-df = pd.read_csv('train.csv')
+### 4. Model Building
+Refer to the `ml_model.py` file for the machine learning model building script used in this project.
 
-# Display basic information about the dataset
-print(df.info())
+## Results
+### Data Cleaning
+The cleaned dataset (`cleaned_train.csv`) is ready for further analysis and visualization.
 
-# Handle missing values (e.g., fill missing age with mean)
-df['Age'] = df['Age'].fillna(df['Age'].mean())
-df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
+### Exploratory Data Analysis (EDA)
+EDA was performed using various visualizations to understand the data trends and relationships. Key insights include:
+- Age distribution of passengers
+- Survival rate by passenger class
 
-# Detect and handle outliers (e.g., cap Fare values)
-df = df[df['Fare'] < 300]
+### Model Building
+A RandomForestClassifier model was built and evaluated. The classification report and confusion matrix are included in the results.
 
-# Convert data types
-df['Pclass'] = df['Pclass'].astype(int)
-df['Survived'] = df['Survived'].astype(int)
+## Conclusion
+This project demonstrates the process of data cleaning, exploratory data analysis, and model building, providing a comprehensive overview of statistical modeling and inference.
 
-# Remove duplicate data
-df = df.drop_duplicates()
-
-# Save the cleaned dataset
-df.to_csv('cleaned_train.csv', index=False)
-
-print("Data cleaning completed.")
